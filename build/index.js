@@ -1,3 +1,1 @@
-'use strict';
-
-var test = 'This is a text';
+const test = 'This is a text';
