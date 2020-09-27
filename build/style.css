@@ -63,6 +63,7 @@ header {
 
 /* sidebar */
 .sidebar {
+  display: inline-block;
   width: 220px;
   padding: 10px; }
   .sidebar .compose {
@@ -139,3 +140,22 @@ header {
     height: 24px;
     width: auto;
     margin-right: 5px; }
+
+main {
+  display: inline-block;
+  vertical-align: top;
+  width: 69%; }
+  main .categories {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px; }
+    main .categories div {
+      display: inline-block;
+      width: 100%; }
+    main .categories div:hover {
+      background-color: #C2DBFF; }
+  main .main-menu {
+    visibility: hidden; }
+  main .main-top {
+    display: flex;
+    justify-content: space-between; }
