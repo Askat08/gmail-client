@@ -126,7 +126,7 @@ header {
       margin-right: 15px; }
 
 /* hangouts */
-.hangouts{
+.hangouts {
   /* border: 1px solid; */ }
   .hangouts .hangout-user {
     display: flex;
@@ -139,3 +139,6 @@ header {
     height: 24px;
     width: auto;
     margin-right: 5px; }
+
+body {
+  background: teal; }
