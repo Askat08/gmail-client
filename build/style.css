@@ -161,8 +161,11 @@ main {
   main .main-top {
     display: flex;
     justify-content: space-between; }
+    main .main-top span {
+      display: inline-block;
+      padding-right: 40px; }
   main #sender {
     display: inline-block;
-    padding-right: 30px; }
+    width: 200px; }
   main #sender, main #subject {
     font-weight: bold; }
