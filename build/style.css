@@ -63,6 +63,7 @@ header {
 
 /* sidebar */
 .sidebar {
+  display: inline-block;
   width: 220px;
   padding: 10px; }
   .sidebar .compose {
@@ -139,3 +140,32 @@ header {
     height: 24px;
     width: auto;
     margin-right: 5px; }
+
+main {
+  display: inline-block;
+  vertical-align: top;
+  width: 69%; }
+  main .categories {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px; }
+    main .categories div {
+      transition: 0.2s ease-in-out;
+      display: inline-block;
+      width: 100%; }
+    main .categories div:hover {
+      transition: 0.2s ease-in-out;
+      background-color: #C2DBFF; }
+  main .main-menu {
+    visibility: hidden; }
+  main .main-top {
+    display: flex;
+    justify-content: space-between; }
+    main .main-top span {
+      display: inline-block;
+      padding-right: 40px; }
+  main #sender {
+    display: inline-block;
+    width: 200px; }
+  main #sender, main #subject {
+    font-weight: bold; }
