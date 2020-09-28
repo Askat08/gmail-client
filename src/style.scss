@@ -210,11 +210,15 @@ main {
   .main-top {
     display: flex;
     justify-content: space-between; 
+    span {
+      display: inline-block;
+      padding-right: 40px;
+    }
   }
 
   #sender {
     display: inline-block;
-    padding-right: 30px;
+    width: 200px;
   }
 
   #sender, #subject {
