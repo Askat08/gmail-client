@@ -203,18 +203,23 @@ main {
     }
   }
 
-  .main-menu {
-    visibility: hidden;
-  }
 
-  .main-top {
-    display: flex;
-    justify-content: space-between; 
-    span {
-      display: inline-block;
-      padding-right: 40px;
+
+.main-top {
+  display: flex;
+  justify-content: space-between;
+
+    .main-menu {
+      // visibility: hidden;
+      // display: flex;
+      //align-self: flex-start;
     }
-  }
+    #pagination {
+      display: inline-block;
+      //align-self: flex-end;
+    }
+}
+  
 
   #sender {
     display: inline-block;
