@@ -156,14 +156,11 @@ main {
     main .categories div:hover {
       transition: 0.2s ease-in-out;
       background-color: #C2DBFF; }
-  main .main-menu {
-    visibility: hidden; }
   main .main-top {
     display: flex;
     justify-content: space-between; }
-    main .main-top span {
-      display: inline-block;
-      padding-right: 40px; }
+    main .main-top #pagination {
+      display: inline-block; }
   main #sender {
     display: inline-block;
     width: 200px; }
