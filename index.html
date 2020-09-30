@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="build/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>GMAIL CLONE</title>
   </head>
   <body>
@@ -27,55 +26,39 @@
       </div>
     </header>
     <aside class="sidebar">
-      <div class="compose"><img src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" />Compose</div>
+      <div class="compose"><img src="./images/plus-icon.png" />Compose</div>
 
       <div class="menu">
         <div class="inbox left-tag">
-          <i class="fa fa-inbox"></i>
+          <img src="./images/inbox-icon.png" />
           <span>Inbox</span>
         </div>
         <div class="starred left-tag">
-          <i class="fa fa-star"></i>
+          <img src="./images/star-icon.png" />
           <span>Starred</span>
         </div>
-        <div class="snoozed left-tag">
-          <i class="fa fa-clock"></i>
-          <span>Snoozed</span>
-        </div>
-        <div class="sent left-tag">
-          <i class="fa fa-paper-plane"></i>
-          <span>Sent</span>
-        </div>
         <div class="trash left-tag">
-          <i class="fa fa-trash"></i>
+          <img src="./images/trash-icon.png" />
           <span>Trash</span>
         </div>
         <div class="spam left-tag">
-          <i class="fa fa-exclamation-triangle"></i>
+          <img src="images/spam-icon.png" />
           <span>Spam</span>
         </div>
         <div class="more left-tag">
-          <i class="fa fa-angle-down" style="padding-left:4px; padding-top:4px"></i>
+          <img src="images/down-arrow.png" />
           <span>More</span>
-        </div>
-         <div class="more-tag">
-          <i class="fas fa-file"></i>
-          <span>Drafts</span>
-        </div>
-        <div class="chat-tag">
-          <i class="fas fa-comment-dots"></i>
-          <span>Chats</span>
         </div>
       </div>
 
       <div class="meet">
         <p>Meet</p>
         <div class="left-tag">
-          <i class="fa fa-camera"></i>
+          <img src="./images/video-icon.png" />
           <span>Start a meeting</span>
         </div>
         <div class="left-tag">
-          <i class="fa fa-keyboard"></i>
+          <img src="./images/meeting-icon.png" />
           <span>Join a meeting</span>
         </div>
       </div>
@@ -83,19 +66,18 @@
       <div class="hangouts">
         <p>Hangouts</p>
         <div class="hangout-user">
-          <div>            
-            <img src="https://lh3.googleusercontent.com/a/default-user=s28-c-k-no" />
-            <div class="hangout-user-status"></div>
+          <div>
+            <img src="./images/user-icon.png" />
             <span>Peter</span>
           </div>
           <div>
-            <img style="width: 15px; height: 15px;" src="./images/plus-icon.png" />
+            <img src="./images/plus-icon.png" />
           </div>
         </div>
-        <hr style="width: 90%"/>
+        <hr style="width: 90%" />
         <div class="hangout-user users">
           <div style="flex: 1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZKoK4MdwQT4QAh5gFMTwVA7Y1Q_gk-sTyGA&usqp=CAU" />
+            <img src="./images/user-icon.png" />
           </div>
           <div style="flex: 4">
             <p style="margin: 0">Peter</p>
@@ -104,7 +86,7 @@
         </div>
         <div class="hangout-user users">
           <div style="flex: 1">
-            <img src="https://lh3.googleusercontent.com/-OBpw-8_vKqU/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnPdC8mLQ_HGtcjxmFVFbncRu13zg/photo.jpg" />
+            <img src="./images/user-icon.png" />
           </div>
           <div style="flex: 4">
             <p style="margin: 0">Nancy</p>
@@ -112,22 +94,10 @@
           </div>
         </div>
       </div>
-      
-      <div class='aside-footer'>
-        <div class="aside-footer-user">
-          <i class="fa fa-user"></i>
-        </div>
-        <div class="aside-footer-hangouts">
-          <i class="fas fa-comment-dots"></i>
-        </div>
-        <div class="aside-footer-calls">
-          <i class="fas fa-phone"></i>
-        </div>
-      </div>
     </aside>
 
     <!-- Compose new letter -->
-    <div class='new-letter'>
+    <div class="new-letter">
       <div class="new-letter-content">
         <div class="new-letter-header">
           <span>New Message</span>
@@ -138,16 +108,16 @@
 
         <div class="new-letter-details">
           <div class="receiver">
-            <span  class="receiver-cc">Cc Bcc</span>
-            <input type="text" name="" placeholder="To">
+            <span class="receiver-cc">Cc Bcc</span>
+            <input type="text" name="" placeholder="To" />
           </div>
-          <div  class="subject">
-            <input type="text" name="" placeholder="Subject">
+          <div class="subject">
+            <input type="text" name="" placeholder="Subject" />
           </div>
         </div>
 
         <div class="new-letter-input">
-          <textarea style="outline: none;" type="text" name="" id=""></textarea>
+          <textarea style="outline: none" type="text" name="" id=""></textarea>
         </div>
 
         <div class="new-letter-text-formatting">
@@ -171,12 +141,11 @@
         </div>
 
         <div class="new-letter-button">
-          
           <div class="send">
             <button>Send</button>
             <i class="fas fa-sort-down"></i>
           </div>
-          
+
           <div class="formatting">
             <i class="fas fa-palette"></i>
             <i class="fas fa-paperclip"></i>
@@ -186,15 +155,40 @@
             <i class="fas fa-image"></i>
             <i class="fas fa-lock"></i>
             <i class="fas fa-pen-alt"></i>
-            <i class="fas fa-ellipsis-v" style="margin-left:150px;"></i>
+            <i class="fas fa-ellipsis-v" style="margin-left: 150px"></i>
             <i class="fas fa-trash"></i>
           </div>
-          
         </div>
-
       </div>
     </div>
 
+    <main>
+      <div class="main-top">
+        <div class="main-menu">
+          <span><a href="#">Mark as Read</a></span>
+          <span><a href="#">Delete</a></span>
+        </div>
+        <div>
+          <div id="pagination"></div>
+          <span id="left"> <a href="">&lt;</a></span>
+          <span id="right"><a href="">&gt;</a></span>
+        </div>
+      </div>
+      s
+
+      <section class="categories">
+        <div><a href="#">Primary</a></div>
+        <div><a href="#">Social</a></div>
+        <div><a href="#">Promotions</a></div>
+      </section>
+      <section class="main-msgs">
+        <div class="messages">
+          <input type="checkbox" class="check" />
+          <span id="sender">Sender's Name</span>
+          <span id="subject">Email Subject</span>
+        </div>
+      </section>
+    </main>
   </body>
-  <script type="text/javascript" src="./build/index.js"></script> 
+  <script type="text/javascript" src="../build/index.js"></script>
 </html>
