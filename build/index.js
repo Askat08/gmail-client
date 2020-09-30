@@ -22,7 +22,9 @@ function composeBtn() {
     }
   }
 
-  document.querySelector(".fa-angle-down").addEventListener("click", cleckAngleMore);
+  document
+    .querySelector(".fa-angle-down")
+    .addEventListener("click", cleckAngleMore);
   function cleckAngleMore() {
     let link = document.querySelector(".more-tag").classList;
     if (link.contains("more-tag-show")) {
@@ -32,7 +34,9 @@ function composeBtn() {
     }
   }
 
-  document.querySelector(".fa-angle-down").addEventListener("click", clickAngleChat);
+  document
+    .querySelector(".fa-angle-down")
+    .addEventListener("click", clickAngleChat);
   function clickAngleChat() {
     let link = document.querySelector(".chat-tag").classList;
     if (link.contains("chat-tag-show")) {
@@ -88,7 +92,7 @@ function composeBtn() {
     const paginationString = `1-${msgLimit} of ${totalMsg}`;
     pagination.textContent = paginationString;
   };
-  const fillMainMsgs = msgLimit => {
+  const fillMainMsgs = (msgLimit) => {
     for (let i = 0; i < msgLimit; i++) {
       const { senderName, messageTitle } = messages[i];
       var messageEl = msgDivMain.cloneNode(true);
@@ -98,17 +102,19 @@ function composeBtn() {
       document.querySelector(".main-msgs").appendChild(messageEl);
     }
   };
-  readMessages().then(response => {
-    console.log("messages API successful retrieval");
-  }).catch(err => {
-    console.error(err);
-  });
+  readMessages()
+    .then((response) => {
+      console.log("messages API successful retrieval");
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   function addListeners() {
     setTimeout(() => {
       console.log("working interval");
       let checkBoxes = document.querySelectorAll(".check");
-      checkBoxes.forEach(elem => {
-        elem.addEventListener("click", e => {
+      checkBoxes.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
           let checked = e.target.checked;
           console.log("check clicked");
           if (checked) {
@@ -127,22 +133,24 @@ function composeBtn() {
 
   const showObject = function () {};
 
-  searchBar.addEventListener("input", e => {
+  searchBar.addEventListener("input", (e) => {
     console.log(e.target.value);
     console.log(myObj.items);
     console.log(myObj);
     alert("yaa");
   });
 
-  fetch("../api.json").then(function (resp) {
-    return resp.json();
-  }).then(function (data) {
-    console.log(data);
-    items = data.items;
-    myObj = data;
-    showObject();
-    console.log(messages[1].senderName);
-  });
+  fetch("../api.json")
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      items = data.items;
+      myObj = data;
+      showObject();
+      console.log(messages[1].senderName);
+    });
   let pageNumber = 1;
   leftArrow = document.querySelector("#left");
   leftLink = '<a href="#"> &lt;</a>';
@@ -183,7 +191,9 @@ function sendBtn() {
   }
 }
 
-document.querySelector(".fa-angle-down").addEventListener("click", cleckAngleMore);
+document
+  .querySelector(".fa-angle-down")
+  .addEventListener("click", cleckAngleMore);
 function cleckAngleMore() {
   let link = document.querySelector(".more-tag").classList;
   if (link.contains("more-tag-show")) {
@@ -193,7 +203,9 @@ function cleckAngleMore() {
   }
 }
 
-document.querySelector(".fa-angle-down").addEventListener("click", clickAngleChat);
+document
+  .querySelector(".fa-angle-down")
+  .addEventListener("click", clickAngleChat);
 function clickAngleChat() {
   let link = document.querySelector(".chat-tag").classList;
   if (link.contains("chat-tag-show")) {
@@ -203,3 +215,6 @@ function clickAngleChat() {
   }
 }
 //show main menu when checkbox is clicke
+("use strict");
+
+var test = "This is a text";
