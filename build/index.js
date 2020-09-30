@@ -42,4 +42,3 @@ function clickAngleChat() {
     link.add('chat-tag-show');
   }
 };
-//show main menu when checkbox is clicked
