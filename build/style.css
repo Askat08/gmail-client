@@ -12,25 +12,25 @@ header {
   justify-content: space-between;
   align-items: center; }
   header .header-icon {
-    max-width: 20px;
-    max-height: 20px; }
-    header .header-icon .lg {
-      max-width: 30px;
-      max-height: 30px; }
+    max-width: 23px;
+    max-height: 23px; }
+  header .lg {
+    max-width: 30px;
+    max-height: 30px; }
   header .left {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     /* flex: 1; */
     width: 220px;
-    border: 1px solid;
     padding-left: 10px; }
     header .left img {
       margin: auto 10px;
       filter: brightness(80%); }
     header .left p {
-      font-size: 24px;
-      color: gray; }
+      font-size: 25px;
+      color: gray;
+      margin: 0; }
   header .right {
     display: flex;
     justify-content: flex-end;
@@ -39,27 +39,40 @@ header {
     header .right img {
       margin: 0 10px; }
   header .middle {
-    flex: 5; }
-    header .middle input {
+    flex: 5;
+    position: relative; }
+    header .middle #search {
       background: url("../images/search-icon.png") no-repeat;
       background-size: 18px;
       background-position: left center;
       background-position-x: 10px;
       background-color: rgba(242, 245, 245, 0.8);
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-left: 40px;
-      padding-right: 20px;
+      margin-top: 5px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      padding-left: 36px;
+      padding-right: 18px;
       border-radius: 8px;
       border: none;
       outline: none;
       min-width: 240px;
       max-width: 600px;
       width: 90%; }
-      header .middle input:focus {
+      header .middle #search:focus {
         border: none;
         background-color: transparent;
         box-shadow: 0 1px 1px 2px lightgray; }
+    header .middle #clear-search {
+      position: absolute;
+      top: 20px;
+      right: 85px;
+      visibility: hidden; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
 
 /* sidebar */
 .sidebar {
