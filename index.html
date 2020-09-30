@@ -15,8 +15,16 @@
       </div>
 
       <div class="middle">
+       
         <input id="search" type="text" placeholder="Search mail" />
+        <span id="clear-search">x</span>
+        
       </div>
+    
+      
+      
+      <!--dynamic -->
+      <!-- <div id="match-list"></div> -->
 
       <div class="right">
         <img class="header-icon" src="images/question-icon.png" />
@@ -24,7 +32,10 @@
         <img class="header-icon" src="images/apps-icon.png" />
         <img class="header-icon lg" src="images/user-icon.png" />
       </div>
+      
     </header>
+    <hr>
+   
     <aside class="sidebar">
       <div class="compose"><img src="./images/plus-icon.png" />Compose</div>
 
@@ -44,6 +55,10 @@
         <div class="spam left-tag">
           <img src="images/spam-icon.png" />
           <span>Spam</span>
+        </div>
+        <div class="more left-tag">
+          <img src="images/down-arrow.png" />
+          <span>More</span>
         </div>
       </div>
 
@@ -92,20 +107,27 @@
       </div>
     </aside>
     <main>
-      <section>
-        <div>checkbox</div>
-        <div>pagination</div>
+      <section class="main-top">
+        <div class="main-menu">
+          <span><a href="#">Mark as Read</a></span>
+          <span><a href="#">Delete</a></span>
+        </div>
+        <div id="pagination">pagination</div>
       </section>
-      <section>
-        <div>Primary</div>
-        <div>Social</div>
-        <div>Promotions</div>
-        <div>Updates</div>
+      <section class="categories">
+        <div><a href="#">Primary</a></div>
+        <div><a href="#">Social</a></div>
+        <div><a href="#">Promotions</a></div>
       </section>
-      <section>
-        <div>Messages...</div>
+      <section class = "main-msgs">
+        <div class="messages">
+          <input type="checkbox" class="check">
+          <span id="sender">Sender's Name</span>
+          <span id="subject">Email Subject</span>
+        </div>
       </section>
     </main>
   </body>
   <script type="text/javascript" src="../build/index.js"></script>
 </html>
+
