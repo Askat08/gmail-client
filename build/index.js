@@ -1,3 +1,4 @@
+
 //show main menu when checkbox is clicked
 
 const messagesAPI = '../api.json';
@@ -11,39 +12,49 @@ const matchList = document.querySelector('#match-list');
 let messages = [];
 const msgDivMain = document.querySelector(".messages");
 msgDivMain.style.display = 'none';
-
-function showMainMenu(checkBox) {}
-//api read
-async function readMessages() {
-    const response = await fetch(messagesAPI);
-    const msgData = await response.json();
-    //fill with messages
-    messages = msgData["items"];
-    const msgLimit = msgData["next"]["limit"];
-    fillPagination(msgData, msgLimit);
-    fillMainMsgs(msgLimit);
-    addListeners();
+const test = 'This is a text';
+document.querySelector(".compose").addEventListener('click', composeBtn);
+function composeBtn() {
+  let link = document.querySelector('.new-letter-content').classList;
+  if (!link.contains('new-letter-show')) {
+    link.add('new-letter-show');
+  }
 }
 
-const fillPagination = (msgData, msgLimit) => {
-    const totalMsg = msgData["total"];
-    const paginationString = `1-${msgLimit} of ${totalMsg}`;
-    pagination.textContent = paginationString;
+document.querySelector(".fa-times").addEventListener('click', closeBtn);
+function closeBtn() {
+  let link = document.querySelector('.new-letter-content').classList;
+  if (link.contains('new-letter-show')) {
+    link.remove('new-letter-show');
+  }
+}
+
+document.querySelector(".send").addEventListener('click', sendBtn);
+function sendBtn() {
+  let link = document.querySelector('.new-letter-content').classList;
+  if (link.contains('new-letter-show')) {
+    link.remove('new-letter-show');
+  }
 };
 
-const fillMainMsgs = msgLimit => {
-    for (let i = 0; i < msgLimit; i++) {
-        const {
-            senderName,
-            messageTitle
-        } = messages[i];
+document.querySelector(".fa-angle-down").addEventListener('click', cleckAngleMore);
+function cleckAngleMore() {
+  let link = document.querySelector('.more-tag').classList;
+  if (link.contains('more-tag-show')) {
+    link.remove('more-tag-show');
+  } else {
+    link.add('more-tag-show');
+  }
+}
 
-        var messageEl = msgDivMain.cloneNode(true);
-        messageEl.style.display = "block"; //make the element visible
-        messageEl.querySelector('#sender').textContent = senderName;
-        messageEl.querySelector('#subject').textContent = messageTitle;
-        document.querySelector(".main-msgs").appendChild(messageEl);
-    }
+document.querySelector(".fa-angle-down").addEventListener('click', clickAngleChat);
+function clickAngleChat() {
+  let link = document.querySelector('.chat-tag').classList;
+  if (link.contains('chat-tag-show')) {
+    link.remove('chat-tag-show');
+  } else {
+    link.add('chat-tag-show');
+  }
 };
 
 readMessages().then(response => {
@@ -92,3 +103,4 @@ fetch('../api.json').then(function (resp) {
     showObject();
     console.log(messages[1].senderName);
 });
+//show main menu when checkbox is clicked
