@@ -76,13 +76,11 @@ hr {
 
 /* sidebar */
 .sidebar {
-  display: inline-block;
   width: 220px;
   padding: 10px; }
   .sidebar .compose {
-    box-shadow: 0 0 1.5px 1.5px lightgray;
-    width: 140px;
-    height: 50px;
+    box-shadow: 0 0 1px 1px lightgray;
+    width: 120px;
     align-items: center;
     justify-content: space-evenly;
     display: flex;
@@ -90,15 +88,14 @@ hr {
     padding: 10px;
     user-select: none;
     margin-bottom: 15px;
-    transition: linear 0.2s;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    font-size: .875rem; }
+    transition: linear 0.2s; }
     .sidebar .compose:hover {
       box-shadow: 1px 3px 5px 2px lightgray; }
     .sidebar .compose img {
       width: 30px;
       height: 30px; }
   .sidebar .menu {
+    border: 1px solid;
     min-height: 200px;
     overflow-y: auto; }
     .sidebar .menu .left-tag {
@@ -107,27 +104,21 @@ hr {
       padding-left: 15px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-      font-size: .875rem; }
+      justify-content: flex-start; }
       .sidebar .menu .left-tag:hover {
-        background-color: rgba(242, 245, 245, 0.8);
-        border-radius: 10px; }
-      .sidebar .menu .left-tag i {
+        background-color: #f1f3f4;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border: none; }
+      .sidebar .menu .left-tag img {
         height: 20px;
         width: 20px;
-        margin-left: 5px;
-        margin-right: 15px;
-        padding-top: 3px;
-        color: grey; }
+        margin-right: 15px; }
 
 /* meet */
 .meet {
-  margin-top: 15px;
   border-top: 2px groove lightgray;
-  border-bottom: 1px solid lightgray;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem; }
+  border-bottom: 1px solid lightgray; }
   .meet p {
     padding-left: 15px; }
   .meet .left-tag {
@@ -142,13 +133,10 @@ hr {
       border-top-right-radius: 50px;
       border-bottom-right-radius: 50px;
       border: none; }
-    .meet .left-tag i {
+    .meet .left-tag img {
       height: 20px;
       width: 20px;
-      margin-left: 5px;
-      margin-right: 15px;
-      padding-top: 3px;
-      color: grey; }
+      margin-right: 15px; }
 
 /* hangouts */
 .hangouts {
@@ -156,9 +144,7 @@ hr {
   .hangouts .hangout-user {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    font-size: .875rem; }
+    align-items: center; }
     .hangouts .hangout-user div:first-child {
       display: flex;
       align-items: center; }
@@ -197,8 +183,8 @@ hr {
   position: fixed;
   bottom: 0;
   right: 80px;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem; }
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; }
 
 .new-letter-content {
   width: 600px;
@@ -306,8 +292,8 @@ hr {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
   visibility: hidden; }
   .more-tag i {
     height: 20px;
@@ -326,8 +312,8 @@ hr {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
   visibility: hidden; }
   .chat-tag i {
     height: 20px;
@@ -354,7 +340,7 @@ main {
       width: 100%; }
     main .categories div:hover {
       transition: 0.2s ease-in-out;
-      background-color: #C2DBFF; }
+      background-color: #c2dbff; }
   main .main-top {
     display: flex;
     justify-content: space-between; }
@@ -363,5 +349,6 @@ main {
   main #sender {
     display: inline-block;
     width: 200px; }
-  main #sender, main #subject {
+  main #sender,
+  main #subject {
     font-weight: bold; }
