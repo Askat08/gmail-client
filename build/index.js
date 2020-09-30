@@ -23,9 +23,7 @@ function sendBtn() {
   }
 }
 
-document
-  .querySelector(".fa-angle-down")
-  .addEventListener("click", cleckAngleMore);
+document.querySelector(".fa-angle-down").addEventListener("click", cleckAngleMore);
 function cleckAngleMore() {
   let link = document.querySelector(".more-tag").classList;
   if (link.contains("more-tag-show")) {
@@ -35,9 +33,7 @@ function cleckAngleMore() {
   }
 }
 
-document
-  .querySelector(".fa-angle-down")
-  .addEventListener("click", clickAngleChat);
+document.querySelector(".fa-angle-down").addEventListener("click", clickAngleChat);
 function clickAngleChat() {
   let link = document.querySelector(".chat-tag").classList;
   if (link.contains("chat-tag-show")) {
@@ -46,4 +42,4 @@ function clickAngleChat() {
     link.add("chat-tag-show");
   }
 }
-//show main menu when checkbox is clicked
+//show main menu when checkbox is clicke
