@@ -82,6 +82,7 @@ function addListeners() {
 let items = [];
 let myObj = {};
 
+
 const showObject = function(){
     
 
@@ -91,7 +92,7 @@ const showObject = function(){
         console.log(e.target.value)
         console.log(myObj.items)
         console.log(myObj);
-        alert('yaa')
+       
     } )
 
 

@@ -80,7 +80,6 @@ searchBar.addEventListener('input', e => {
     console.log(e.target.value);
     console.log(myObj.items);
     console.log(myObj);
-    alert('yaa');
 });
 
 fetch('../api.json').then(function (resp) {
