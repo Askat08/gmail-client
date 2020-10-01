@@ -7,6 +7,7 @@ const senderMain = document.querySelector("#sender");
 const subjectMain = document.querySelector("#subject");
 const searchBar = document.querySelector('#search');
 const matchList = document.querySelector('#match-list')
+const middle = document.querySelector('.middle');
 
 
 let messages = [];
@@ -76,24 +77,37 @@ function addListeners() {
     }, 1000);
 }
 
-
-
-///////
-let items = [];
-let myObj = {};
-
-
-const showObject = function(){
+     
+    /////// Aidana's code
+    let items = [];
+    let myObj = {};
     
+    
+    
+     const showObject = function(){
+ 
+     }
 
-}
 
-    searchBar.addEventListener('input', (e) =>{
-        console.log(e.target.value)
-        console.log(myObj.items)
-        console.log(myObj);
-       
-    } )
+
+   const showObj =  searchBar.addEventListener('input', (e) => {
+       console.log(items);
+       //console.log(myObj);
+        const inputVal = e.target.value.toLowerCase();
+        console.log(inputVal);
+
+        for(let i = 0; i < items.length; i++){
+            if(inputVal.length >0){
+                if(items[i].senderName.toLowerCase().includes(inputVal) || items[i].senderEmail.toLowerCase().includes(inputVal) || items[i].messageTitle.toLowerCase().includes(inputVal)){
+                    matchList.innerHTML = `<div class='textInput'>
+                    ${items[i].senderName}, ${items[i].senderEmail} , ${items[i].messageTitle}
+                    </div>`
+                        }            
+            };
+      
+     }
+    });
+  
 
 
 fetch('../api.json')
@@ -101,11 +115,15 @@ fetch('../api.json')
      return resp.json();
  })
   .then(function(data){
-      console.log(data);
+     // console.log(data);
       items = data.items;
       myObj = data;
+      showObj;
       showObject();
-      console.log(messages[1].senderName);
+      //console.log(items[1].senderName);
 
-  })
+  });
+
+
+  ///Aidana's code end
 
