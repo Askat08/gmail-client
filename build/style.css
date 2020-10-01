@@ -79,8 +79,9 @@ hr {
   width: 220px;
   padding: 10px; }
   .sidebar .compose {
-    box-shadow: 0 0 1px 1px lightgray;
-    width: 120px;
+    box-shadow: 0 0 1.5px 1.5px lightgray;
+    width: 140px;
+    height: 50px;
     align-items: center;
     justify-content: space-evenly;
     display: flex;
@@ -88,14 +89,15 @@ hr {
     padding: 10px;
     user-select: none;
     margin-bottom: 15px;
-    transition: linear 0.2s; }
+    transition: linear 0.2s;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: .875rem; }
     .sidebar .compose:hover {
       box-shadow: 1px 3px 5px 2px lightgray; }
     .sidebar .compose img {
       width: 30px;
       height: 30px; }
   .sidebar .menu {
-    border: 1px solid;
     min-height: 200px;
     overflow-y: auto; }
     .sidebar .menu .left-tag {
@@ -104,21 +106,27 @@ hr {
       padding-left: 15px;
       display: flex;
       align-items: center;
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      font-size: .875rem; }
       .sidebar .menu .left-tag:hover {
-        background-color: #f1f3f4;
-        border-top-right-radius: 50px;
-        border-bottom-right-radius: 50px;
-        border: none; }
-      .sidebar .menu .left-tag img {
+        background-color: rgba(242, 245, 245, 0.8);
+        border-radius: 10px; }
+      .sidebar .menu .left-tag i {
         height: 20px;
         width: 20px;
-        margin-right: 15px; }
+        margin-left: 5px;
+        margin-right: 15px;
+        padding-top: 3px;
+        color: grey; }
 
 /* meet */
 .meet {
+  margin-top: 15px;
   border-top: 2px groove lightgray;
-  border-bottom: 1px solid lightgray; }
+  border-bottom: 1px solid lightgray;
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-size: .875rem; }
   .meet p {
     padding-left: 15px; }
   .meet .left-tag {
@@ -133,10 +141,13 @@ hr {
       border-top-right-radius: 50px;
       border-bottom-right-radius: 50px;
       border: none; }
-    .meet .left-tag img {
+    .meet .left-tag i {
       height: 20px;
       width: 20px;
-      margin-right: 15px; }
+      margin-left: 5px;
+      margin-right: 15px;
+      padding-top: 3px;
+      color: grey; }
 
 /* hangouts */
 .hangouts {
@@ -144,7 +155,9 @@ hr {
   .hangouts .hangout-user {
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: .875rem; }
     .hangouts .hangout-user div:first-child {
       display: flex;
       align-items: center; }
@@ -221,6 +234,7 @@ hr {
   width: 98%;
   margin-left: 5px; }
 
+/*Check*/
 .new-letter-details input {
   width: 90%;
   height: 30px;
@@ -352,3 +366,43 @@ main {
   main #sender,
   main #subject {
     font-weight: bold; }
+
+.more-tag {
+  padding: 5px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-size: .875rem;
+  visibility: hidden; }
+  .more-tag i {
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+    margin-right: 12px;
+    padding-top: 3px;
+    color: grey; }
+
+.more-tag-show {
+  visibility: visible; }
+
+.chat-tag {
+  padding: 5px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-size: .875rem;
+  visibility: hidden; }
+  .chat-tag i {
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+    margin-right: 12px;
+    padding-top: 3px;
+    color: grey; }
+
+.chat-tag-show {
+  visibility: visible; }
