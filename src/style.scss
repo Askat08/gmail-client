@@ -19,6 +19,16 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.active {
+  color: #ae4d4d;
+  border-bottom: 2px solid #ae4d4d;
+}
+
+.unread {
+  font-weight: bold;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -120,8 +130,8 @@ hr {
     user-select: none;
     margin-bottom: 15px;
     transition: linear 0.2s;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    font-size: .875rem;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
     &:hover {
       box-shadow: 1px 3px 5px 2px lightgray;
     }
@@ -141,8 +151,8 @@ hr {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-      font-size: .875rem;
+      font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+      font-size: 0.875rem;
       &:hover {
         background-color: rgba(242, 245, 245, 0.8);
         border-radius: 10px;
@@ -153,7 +163,7 @@ hr {
         margin-left: 5px;
         margin-right: 15px;
         padding-top: 3px;
-        color:grey;
+        color: grey;
       }
     }
   }
@@ -164,8 +174,8 @@ hr {
   margin-top: 15px;
   border-top: 2px groove lightgray;
   border-bottom: 1px solid lightgray;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
   p {
     padding-left: 15px;
   }
@@ -188,7 +198,7 @@ hr {
       margin-left: 5px;
       margin-right: 15px;
       padding-top: 3px;
-      color:grey;
+      color: grey;
     }
   }
 }
@@ -200,8 +210,8 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    font-size: .875rem;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
     div:first-child {
       display: flex;
       align-items: center;
@@ -240,6 +250,7 @@ hr {
 }
 .aside-footer {
   i {
+    color: grey;
     &:hover {
       background-color: lightgrey;
     }
@@ -249,6 +260,7 @@ hr {
 /*Compose new letter*/
 .new-letter {
   position: fixed;
+  z-index: 9;
   bottom: 0;
   right: 80px;
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
@@ -260,10 +272,12 @@ hr {
   background: white;
   box-shadow: 0 0 1.5px 1.5px lightgray;
   border-radius: 5px;
-  visibility: hidden;
+  // visibility: hidden;
+  display: none;
 }
 .new-letter-show {
-  visibility: visible;
+  // visibility: visible;
+  display: block;
 }
 .new-letter-header {
   background-color: #404040;
@@ -434,93 +448,274 @@ hr {
 }
 
 main {
-  display: inline-block;
-  vertical-align: top;
-  width: 69%;
+  /* border: 1px solid red; */
+  position: fixed;
+  right: 0;
+  top: 83px;
+  float: right;
+  width: calc(100vw - 220px);
+  height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(253, 253, 253);
+  // z-index: -1;
+}
+main section {
+  margin-right: 20px;
+}
+main .page {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 0.5px solid #e0e0e0;
+}
+main .page .check-menu {
+  color: #787878;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+}
+main .page .check-menu .check-box {
+  position: relative;
+}
+main .page .check-menu .check-box input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+main .page .check-menu .check-box .fas {
+  position: absolute;
+  top: 3px;
+  right: -15px;
+}
+main .page .check-menu .check-box:hover {
+  background-color: #dcdcdc;
+}
+main .page .check-menu .refresh-menu .fas {
+  padding: 0 15px;
+}
+main .page .pagination {
+  display: flex;
+  align-items: center;
+  padding-right: 35px;
+}
+main .page .pagination .nextPrev {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  padding: 0 25px;
+  color: #bfbfbf;
+}
+main .page .pagination .nextPrev .fas {
+  cursor: pointer;
+}
+main .page .pagination .num-of-pages {
+  font-size: 12px;
+}
+main .page .pagination .keyboard {
+  position: relative;
+}
+main .page .pagination .keyboard .fa-caret-down {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  color: #7f7f7f;
+}
+main .scroll {
+  overflow-y: scroll;
+}
+main .scroll .tabs {
+  /* border: 1px solid blueviolet; */
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 0.5px solid #e0e0e0;
+  cursor: pointer;
+  color: #737373;
+}
+main .scroll .tabs .fas {
+  margin-right: 15px;
+}
+main .scroll .tabs .tab {
+  padding: 15px 20px;
+  /* border: 1px solid red; */
+  width: 25%;
+}
+main .scroll .tabs .tab:hover {
+  background-color: rgba(242, 245, 245, 0.8);
+}
+main .scroll .email {
+  box-sizing: border-box;
+  border-bottom: 1px solid #f2f5f2;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+main .scroll .email:hover {
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #aaa;
+  border-left: 1px solid #aaa;
+  padding-left: 14px;
+  position: relative;
+}
+main .scroll .email .hover-icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 100%;
+  background-color: #fff;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  color: #737373;
+}
+main .scroll .email .hover-icons .fas {
+  padding: 10px;
+  cursor: pointer;
+}
 
-  .categories {
-    display: flex;
-    justify-content: flex-start;
-    height: 50px;
-    div {
-      transition: 0.2s ease-in-out;
-      display: inline-block;
-      width: 100%;
-    }
-    div:hover {
-      transition: 0.2s ease-in-out;
-      background-color: #c2dbff;
-    }
-  }
+main .scroll .email:hover .hover-icons {
+  display: flex;
+  z-index: 999;
+}
+main .scroll .email .email-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 200px;
+  color: #737373;
+  position: relative;
+}
+main .scroll .email .email-icons .checkbox input {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+main .scroll .email .email-icons .starred .fa-star {
+  position: absolute;
+  top: 12.5px;
+  left: 40px;
+  font-size: 14px;
+}
+main .scroll .email .email-icons .email-sender-wrapper {
+  text-align: left;
+  width: 60%;
+  color: #333;
+}
+main .scroll .email .email-msg {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+main .scroll .email .email-msg .email-title {
+  text-align: left;
+}
+main .scroll .email .email-msg .email-body {
+  margin-left: 10px;
+  font-weight: lighter;
+}
+main .scroll .email .email-msg p {
+  margin: 10px 0;
+}
+main .scroll .email .email-date-wrapper {
+  padding-left: 20px;
+}
 
-  .main-top {
-    display: flex;
-    justify-content: space-between;
+// main {
+//   display: inline-block;
+//   vertical-align: top;
+//   width: 69%;
 
-    .main-menu {
-      // visibility: hidden;
-      // display: flex;
-      //align-self: flex-start;
-    }
-    #pagination {
-      display: inline-block;
-      //align-self: flex-end;
-    }
-  }
+//   .categories {
+//     display: flex;
+//     justify-content: flex-start;
+//     height: 50px;
+//     div {
+//       transition: 0.2s ease-in-out;
+//       display: inline-block;
+//       width: 100%;
+//     }
+//     div:hover {
+//       transition: 0.2s ease-in-out;
+//       background-color: #c2dbff;
+//     }
+//   }
 
-  #sender {
-    display: inline-block;
-    width: 200px;
-  }
+//   .main-top {
+//     display: flex;
+//     justify-content: space-between;
 
-  #sender,
-  #subject {
-    font-weight: bold;
-  }
-} 
+//     .main-menu {
+//       // visibility: hidden;
+//       // display: flex;
+//       //align-self: flex-start;
+//     }
+//     #pagination {
+//       display: inline-block;
+//       //align-self: flex-end;
+//     }
+//   }
 
+//   #sender {
+//     display: inline-block;
+//     width: 200px;
+//   }
+
+//   #sender,
+//   #subject {
+//     font-weight: bold;
+//   }
+// }
 
 // Menu more tags
-.more-tag{
-  padding: 5px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem;
-  visibility: hidden;
-  i{
-    height: 20px;
-    width: 20px;
-    margin-left: 8px;
-    margin-right: 12px;
-    padding-top: 3px;
-    color:grey;   
-  }
-}
-.more-tag-show{
-  visibility: visible;
-}
+// .more-tag{
+//   padding: 5px;
+//   padding-left: 15px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+//   font-size: .875rem;
+//   visibility: hidden;
+//   i{
+//     height: 20px;
+//     width: 20px;
+//     margin-left: 8px;
+//     margin-right: 12px;
+//     padding-top: 3px;
+//     color:grey;
+//   }
+// }
+// .more-tag-show{
+//   visibility: visible;
+// }
 
-.chat-tag{
-  padding: 5px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  font-size: .875rem;
-  visibility: hidden;
-  i{
-    height: 20px;
-    width: 20px;
-    margin-left: 8px;
-    margin-right: 12px;
-    padding-top: 3px;
-    color:grey;   
-  }
-}
-.chat-tag-show{
-  visibility: visible;
-}
+// .chat-tag{
+//   padding: 5px;
+//   padding-left: 15px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+//   font-size: .875rem;
+//   visibility: hidden;
+//   i{
+//     height: 20px;
+//     width: 20px;
+//     margin-left: 8px;
+//     margin-right: 12px;
+//     padding-top: 3px;
+//     color:grey;
+//   }
+// }
+// .chat-tag-show{
+//   visibility: visible;
+// }
