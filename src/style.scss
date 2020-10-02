@@ -134,8 +134,9 @@ header {
     .match-list{
       position: absolute;
       width: 100%;
-      height: 50px;
-     
+      //height: 50px;
+      z-index: 99;
+      
     }
     
     em{
@@ -541,7 +542,7 @@ hr {
 main {
   /* border: 1px solid red; */
   position: fixed;
-  position: relative;   //new added
+  
   right: 0;
   top: 83px;
   float: right;
