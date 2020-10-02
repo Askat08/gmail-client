@@ -174,9 +174,10 @@ const mainMenu = document.querySelector(".main-menu");
 const pagination = document.querySelector("#pagination");
 const senderMain = document.querySelector("#sender");
 const subjectMain = document.querySelector("#subject");
-const searchBar = document.querySelector("#search");
-const matchList = document.querySelector("#match-list");
-const middle = document.querySelector(".middle");
+const searchBar = document.querySelector('#search');
+const matchList = document.querySelector('.match-list')
+const middle = document.querySelector('.middle');
+
 
 // let messages = [];
 // const msgDivMain = document.querySelector(".messages");
@@ -243,47 +244,236 @@ const middle = document.querySelector(".middle");
 //     }, 1000);
 // }
 
-/////// Aidana's code
-let items = [];
-let myObj = {};
+     
+    /////// Aidana's code
+    const itemsListData = [
+        {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Seytech Co",
+            "senderEmail": "support@seytech.com",
+            "messageTitle": "Enrollment start date",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "When you would like to join us?",
+            "attachments": [
+            {
+            "text": "seytech logo",
+            "icon": "https://www.seytech.co/images/logo.png"
+            }
+            ],
+            "date": "2020-10-01T16:02:06.598Z"
+            },
+            {
+            "message": "Here is the info about our start date",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Heroku",
+            "senderEmail": "heroku@heroku.com",
+            "messageTitle": "Excited to announce our new feature",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Now you can use for free $$$",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Facebook",
+            "senderEmail": "facebook@facebook.com",
+            "messageTitle": "Today is your friends birthday!",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Time to congratulate your friends on their birthday",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            }
+    ]
 
-const showObject = function () {
-  // console.log(myObj);
-};
+    console.log(itemsListData);
 
-const showObj = searchBar.addEventListener("input", (e) => {
-  console.log(items);
-  //console.log(myObj);
-  const inputVal = e.target.value.toLowerCase();
-  console.log(inputVal);
+    
+ 
 
-  for (let i = 0; i < items.length; i++) {
-    if (inputVal.length > 0) {
-      if (
-        items[i].senderName.toLowerCase().includes(inputVal) ||
-        items[i].senderEmail.toLowerCase().includes(inputVal) ||
-        items[i].messageTitle.toLowerCase().includes(inputVal)
-      ) {
-        matchList.innerHTML = `<div class='textInput'>
-                    ${items[i].senderName}, ${items[i].senderEmail} , ${items[i].messageTitle}
-                    </div>`;
-      }
+const getObject = function(itemsListData){
+ itemsListData.forEach(function(email){
+ let firstdiv = document.createElement('div')
+ matchList.appendChild()
+
+ //     
+ for(let i = 0; i < itemsListData.length; i++){
+    if(inputVal.length > 0 && inputVal !== ""){
+        if(itemsListData[i].senderName.toLowerCase().includes(inputVal) || itemsListData[i].senderEmail.toLowerCase().includes(inputVal) || itemsListData[i].messageTitle.toLowerCase().includes(inputVal)){
+            matchList.innerHTML += `<div class="result">
+            <a href="#" class="searchList">
+            <i class="fas fa-envelope"></i>
+            <span class="searchl">${itemsListData[i].messageTitle}</span>
+            <p class="searchp"> 
+            <em class="italic">from:  </em>
+            ${itemsListData[i].senderName} &nbsp; <em class="italic">email: </em>${itemsListData[i].senderEmail}
+            </p> 
+            </a> 
+            </div`
+                }           
+    }else {
+        matchList.innerHTML = "";
     }
-  }
-});
+ 
+            
+}
+ })
+}
 
-fetch("https://polar-reaches-49806.herokuapp.com/api?page=1&category=primary")
-  .then(function (resp) {
-    return resp.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-    items = data.items;
-    myObj = data;
-    showObj;
-    showObject();
-    //console.log(items[1].senderName);
-  });
+    searchBar.addEventListener('input', (e) => {
+       const inputVal = e.target.value.toLowerCase();  
+        console.log(inputVal);
+        getObject();
+   
+    });
+  
+   // let items = [];
+    // let myObj = {};
+    
+    
+    
+    //  const showObject = function(){
+    //     console.log(myObj);
+    //  }
+
+// fetch('https://polar-reaches-49806.herokuapp.com/api?page=1&category=primary')
+//  .then(function(resp){
+//      return resp.json();
+//  })
+//   .then(function(data){
+//      // console.log(data);
+//       items = data.items;
+//       myObj = data;
+//       showObj;
+//       showObject();
+//       //console.log(items[1].senderName);
+
+//   });
 
 ///Aidana's code end
 
