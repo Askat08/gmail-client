@@ -9,6 +9,7 @@ fetchApi("promotions");
 const primary = document.querySelector(".primary");
 const social = document.querySelector(".social");
 const promo = document.querySelector(".promotions");
+const inbox = document.querySelector('.inbox');
 const emails = document.querySelector(".emails");
 const trash = document.querySelector(".trash");
 const star = document.querySelector(".starred");
@@ -16,6 +17,52 @@ const spam = document.querySelector(".spam");
 const envelope = document.querySelector(".fa-envelope-open");
 const input = document.querySelector("#search");
 const emailDiv = document.querySelector(".email");
+
+// Inbox
+inbox.addEventListener('click', function () {
+  let type = activeTab();
+  document.querySelector('.emails').textContent = '';
+  dataobj[type].items.forEach(function (email, index) {
+    if (!email.tags.isTrash) {
+      createEmailList(email, index);
+      console.log('test');
+    }
+  });
+});
+
+//Spam
+spam.addEventListener('click', function () {
+  let type = activeTab();
+  document.querySelector('.emails').textContent = '';
+  dataobj[type].items.forEach(function (email, index) {
+    if (!email.tags.isSpam) {
+      createEmailList(email, index);
+      console.log('test');
+    }
+  });
+});
+
+//Starred box
+star.addEventListener('click', function () {
+  let type = activeTab();
+  document.querySelector('.emails').textContent = '';
+  dataobj[type].items.forEach(function (email, index) {
+    if (email.tags.isStarred) {
+      createEmailList(email, index);
+    }
+  });
+});
+
+//Trash box
+trash.addEventListener('click', function () {
+  let type = activeTab();
+  document.querySelector('.emails').textContent = '';
+  dataobj[type].items.forEach(function (email, index) {
+    if (email.tags.isTrash) {
+      createEmailList(email, index);
+    }
+  });
+});
 
 // EVENT LISTENERS
 social.addEventListener("click", () => listToUi(dataobj, "social"));
