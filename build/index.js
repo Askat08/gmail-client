@@ -1,6 +1,8 @@
 // askat start
 // data
 let dataobj = {};
+const messagesLimitOnPage = 20;
+let messagesStartIndex = 0;
 fetchApi();
 fetchApi("social");
 fetchApi("promotions");
@@ -16,11 +18,23 @@ const spam = document.querySelector(".spam");
 const envelope = document.querySelector(".fa-envelope-open");
 const input = document.querySelector("#search");
 const emailDiv = document.querySelector(".email");
+const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
+
+const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
 // EVENT LISTENERS
-social.addEventListener("click", () => listToUi(dataobj, "social"));
-primary.addEventListener("click", () => listToUi(dataobj, "primary"));
-promo.addEventListener("click", () => listToUi(dataobj, "promotions"));
+social.addEventListener("click", () => {
+  messagesStartIndex = 0; //reset the startIndex
+  listToUi(dataobj, "social");
+});
+primary.addEventListener("click", () => {
+  messagesStartIndex = 0;
+  listToUi(dataobj, "primary");
+});
+promo.addEventListener("click", () => {
+  messagesStartIndex = 0;
+  listToUi(dataobj, "promotions");
+});
 
 emails.addEventListener("click", deleteOrRead);
 
@@ -35,7 +49,20 @@ function fetchApi(category = "primary") {
 function listToUi(data, category) {
   tabSwitch(category);
   document.querySelector(".emails").textContent = "";
-  data[category].items.forEach((item, index) => {
+
+  //MODIFIED BY AZIZ, KANYKEI-----------------------
+  //pagination total Elements
+  totalMessagesElement.innerText = data[category].items.length;
+  //show the range of messages
+  let messagesCount = data[category].items.length; //50
+  let rangeEnd = (messagesStartIndex + messagesLimitOnPage);
+  if(rangeEnd > messagesCount) {
+    rangeEnd = rangeEnd - (rangeEnd%messagesCount);
+  }
+  rangeOfMessagesElement.innerText = `${messagesStartIndex+1}-${rangeEnd} of `;
+  //---------------END OF MODIFIED CODE--------------
+
+  data[category].items.slice(messagesStartIndex, messagesLimitOnPage + messagesStartIndex).forEach((item, index) => {
     if (!item.tags.isTrash) {
       // console.log("listing");
       createEmailList(item, index);
@@ -164,70 +191,7 @@ const searchBar = document.querySelector("#search");
 const matchList = document.querySelector("#match-list");
 const middle = document.querySelector(".middle");
 
-// let messages = [];
-// const msgDivMain = document.querySelector(".messages");
-// msgDivMain.style.display = 'none';
 
-// function showMainMenu(checkBox) {
-
-// }
-// //api read
-// async function readMessages() {
-//     const response = await fetch(messagesAPI);
-//     const msgData = await response.json();
-//     //fill with messages
-//     messages = msgData["items"];
-//     const msgLimit = msgData["next"]["limit"];
-//     fillPagination(msgData, msgLimit);
-//     fillMainMsgs(msgLimit);
-//     addListeners();
-// }
-
-// const fillPagination = (msgData, msgLimit) => {
-//     const totalMsg = msgData["total"];
-//     const paginationString = `1-${msgLimit} of ${totalMsg}`;
-//     pagination.textContent = paginationString;
-// }
-
-// const fillMainMsgs = msgLimit => {
-//     for (let i = 0; i < msgLimit; i++) {
-//         const {
-//             senderName,
-//             messageTitle
-//         } = messages[i];
-
-//         var messageEl = msgDivMain.cloneNode(true);
-//         messageEl.style.display = "block"; //make the element visible
-//         messageEl.querySelector('#sender').textContent = senderName;
-//         messageEl.querySelector('#subject').textContent = messageTitle;
-//         document.querySelector(".main-msgs").appendChild(messageEl);
-//     }
-// }
-
-// readMessages().then(response => {
-//     console.log('messages API successful retrieval')
-// }).
-// catch(err => {
-//     console.error(err);
-// })
-
-// function addListeners() {
-//     setTimeout(() => {
-//         console.log('working interval')
-//         let checkBoxes = document.querySelectorAll('.check');
-//         checkBoxes.forEach(elem => {
-//             elem.addEventListener('click', (e) => {
-//                 let checked = e.target.checked;
-//                 console.log('check clicked')
-//                 if (checked) {
-//                     mainMenu.style.visibility = 'visible';
-//                 } else {
-//                     mainMenu.style.visibility = 'hidden';
-//                 }
-//             });
-//         })
-//     }, 1000);
-// }
 
 /////// Aidana's code
 let items = [];
@@ -311,4 +275,39 @@ function clickAngleChat() {
   }
 }
 
-//show main menu when checkbox is clicked
+//-------------MAIN PART - AZIZ, KANYKEI-----
+let leftArrow = document.querySelector('.fa-angle-left');
+let rightArrow = document.querySelector('.fa-angle-right');
+
+leftArrow.addEventListener('click', goBack);
+rightArrow.addEventListener('click', goForth);
+
+function goBack() {
+  let currentTab = activeTab();
+  //check if the startIndex>= limit
+  if (messagesStartIndex >= messagesLimitOnPage) {
+    messagesStartIndex -= 20;
+    listToUi(dataobj, currentTab);
+  }
+}
+
+function goForth() {
+  //find active tab
+  let currentTab = activeTab();
+  if (dataobj[currentTab] === undefined) {
+    return;
+  }
+
+  let totalMessages = dataobj[currentTab]['items'].length;
+  if (messagesStartIndex + messagesLimitOnPage < totalMessages && totalMessages !== undefined) {
+    messagesStartIndex += messagesLimitOnPage;
+    listToUi(dataobj, currentTab);
+  }
+}
+
+setTimeout(() => {
+  console.log('dataOBJ');
+  console.log(dataobj);
+}, 1000);
+
+//---------------MAIN PART END---------------
