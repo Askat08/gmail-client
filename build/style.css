@@ -38,6 +38,10 @@ header {
     flex: 1; }
     header .right img {
       margin: 0 10px; }
+  header .middle:focus-within {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    border-radius: 10px; }
   header .middle {
     flex: 5;
     position: relative; }
@@ -57,7 +61,7 @@ header {
       outline: none;
       min-width: 240px;
       max-width: 600px;
-      width: 90%; }
+      width: 100%; }
       header .middle #search:focus {
         border: none;
         background-color: transparent;
@@ -67,6 +71,36 @@ header {
       top: 20px;
       right: 85px;
       visibility: hidden; }
+    header .middle .match-list {
+      position: absolute;
+      width: 100%;
+      height: 50px; }
+    header .middle em {
+      color: #b9b6b6; }
+    header .middle .result {
+      width: 100%;
+      margin: 0;
+      padding: 5px; }
+      header .middle .result .searchList {
+        text-decoration: none;
+        color: #5c5a5a;
+        font-size: 0.8em;
+        padding: 5px;
+        cursor: pointer;
+        display: block; }
+        header .middle .result .searchList .fas fa-envelope {
+          margin: 2px, 10px, 2px, 2px;
+          padding: 2px; }
+        header .middle .result .searchList .searchL {
+          margin-left: 5px; }
+        header .middle .result .searchList .searchp {
+          margin: 0;
+          padding-left: 18px; }
+      header .middle .result .searchList:hover {
+        background-color: lightgray; }
+    header .middle .result:hover {
+      background-color: lightgray;
+      border-radius: 10px; }
 
 hr {
   border: 0;
