@@ -10,7 +10,12 @@
       crossorigin="anonymous"
     />
     <link href="build/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <title>GMAIL CLONE</title>
   </head>
   <body>
@@ -25,11 +30,7 @@
         <input id="search" type="text" placeholder="Search mail" />
         <span id="clear-search">x</span>
         <div id="match-list"></div>
-        
       </div>
-    
-
-     
 
       <div class="right">
         <img class="header-icon" src="images/question-icon.png" />
@@ -41,7 +42,11 @@
     <hr />
 
     <aside class="sidebar">
-      <div class="compose"><img src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" />Compose</div>
+      <div class="compose">
+        <img
+          src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"
+        />Compose
+      </div>
 
       <div class="menu">
         <div class="inbox left-tag">
@@ -69,10 +74,13 @@
           <span>Spam</span>
         </div>
         <div class="more left-tag">
-          <i class="fa fa-angle-down" style="padding-left:4px; padding-top:4px"></i>
+          <i
+            class="fa fa-angle-down"
+            style="padding-left: 4px; padding-top: 4px"
+          ></i>
           <span>More</span>
         </div>
-         <div class="more-tag">
+        <div class="more-tag">
           <i class="fas fa-file"></i>
           <span>Drafts</span>
         </div>
@@ -97,19 +105,26 @@
       <div class="hangouts">
         <p>Hangouts</p>
         <div class="hangout-user">
-          <div>            
-            <img src="https://lh3.googleusercontent.com/a/default-user=s28-c-k-no" />
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/a/default-user=s28-c-k-no"
+            />
             <div class="hangout-user-status"></div>
             <span>Peter</span>
           </div>
           <div>
-            <img style="width: 15px; height: 15px;" src="./images/plus-icon.png" />
+            <img
+              style="width: 15px; height: 15px"
+              src="./images/plus-icon.png"
+            />
           </div>
         </div>
-        <hr style="width: 90%"/>
+        <hr style="width: 90%" />
         <div class="hangout-user users">
           <div style="flex: 1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZKoK4MdwQT4QAh5gFMTwVA7Y1Q_gk-sTyGA&usqp=CAU" />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZKoK4MdwQT4QAh5gFMTwVA7Y1Q_gk-sTyGA&usqp=CAU"
+            />
           </div>
           <div style="flex: 4">
             <p style="margin: 0">Peter</p>
@@ -118,7 +133,9 @@
         </div>
         <div class="hangout-user users">
           <div style="flex: 1">
-            <img src="https://lh3.googleusercontent.com/-OBpw-8_vKqU/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnPdC8mLQ_HGtcjxmFVFbncRu13zg/photo.jpg" />
+            <img
+              src="https://lh3.googleusercontent.com/-OBpw-8_vKqU/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnPdC8mLQ_HGtcjxmFVFbncRu13zg/photo.jpg"
+            />
           </div>
           <div style="flex: 4">
             <p style="margin: 0">Nancy</p>
@@ -126,8 +143,8 @@
           </div>
         </div>
       </div>
-      
-      <div class='aside-footer'>
+
+      <div class="aside-footer">
         <div class="aside-footer-user">
           <i class="fa fa-user"></i>
         </div>
@@ -206,6 +223,66 @@
     </div>
 
     <main>
+      <section class="page">
+        <div class="check-menu">
+          <div class="check-box">
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <i class="fas fa-caret-down"></i>
+          </div>
+          <div class="refresh-menu">
+            <i class="fas fa-redo-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="pagination">
+          <div class="num-of-pages">
+            <span>1 – 50</span> of <span class="total">1,200</span>
+          </div>
+          <div class="nextPrev">
+            <i class="fas fa-angle-left"></i>
+            <i class="fas fa-angle-right"></i>
+          </div>
+          <div class="keyboard">
+            <i class="fas fa-keyboard"></i>
+            <i class="fas fa-caret-down"></i>
+          </div>
+        </div>
+      </section>
+      <section class="scroll">
+        <section class="tabs">
+          <div class="primary tab"><i class="fas fa-inbox"></i>Primary</div>
+          <div class="social tab">
+            <i class="fas fa-user-friends"></i>Social
+          </div>
+          <div class="promotions tab"><i class="fas fa-tag"></i>Promotions</div>
+        </section>
+        <section class="emails">
+          <div class="email">
+            <div class="hover-icons">
+              <i class="fas fa-trash"></i>
+              <i class="fas fa-envelope-open"></i>
+            </div>
+            <div class="email-icons">
+              <div class="checkbox">
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div class="starred"><i class="fas fa-star"></i></div>
+              <div class="email-sender-wrapper">
+                <p class="email-sender">Glassdoor Jobs</p>
+              </div>
+            </div>
+            <div class="email-msg">
+              <p class="email-title">Your chances of seeing success on HIRED</p>
+              <p class="email-body">Lorem ipsum dolor sit.</p>
+            </div>
+            <div class="email-date-wrapper">
+              <p class="email-date">4:00 PM</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <!-- <main>
       <div class="main-top">
         <div class="main-menu">
           <span><a href="#">Mark as Read</a></span>
@@ -231,7 +308,7 @@
           <span id="subject">Email Subject</span>
         </div>
       </section>
-    </main>
+    </main> -->
   </body>
   <script type="text/javascript" src="./build/index.js"></script>
 </html>
