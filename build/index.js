@@ -11,7 +11,7 @@ fetchApi("promotions");
 const primary = document.querySelector(".primary");
 const social = document.querySelector(".social");
 const promo = document.querySelector(".promotions");
-const inbox = document.querySelector('.inbox');
+const inbox = document.querySelector(".inbox");
 const emails = document.querySelector(".emails");
 const trash = document.querySelector(".trash");
 const star = document.querySelector(".starred");
@@ -33,33 +33,33 @@ const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
 const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
 // Inbox
-inbox.addEventListener('click', function () {
+inbox.addEventListener("click", function () {
   let type = activeTab();
-  document.querySelector('.emails').textContent = '';
+  document.querySelector(".emails").textContent = "";
   dataobj[type].items.forEach(function (email, index) {
     if (!email.tags.isTrash) {
       createEmailList(email, index);
-      console.log('test');
+      console.log("test");
     }
   });
 });
 
 //Spam
-spam.addEventListener('click', function () {
+spam.addEventListener("click", function () {
   let type = activeTab();
-  document.querySelector('.emails').textContent = '';
+  document.querySelector(".emails").textContent = "";
   dataobj[type].items.forEach(function (email, index) {
     if (!email.tags.isSpam) {
       createEmailList(email, index);
-      console.log('test');
+      console.log("test");
     }
   });
 });
 
 //Starred box
-star.addEventListener('click', function () {
+star.addEventListener("click", function () {
   let type = activeTab();
-  document.querySelector('.emails').textContent = '';
+  document.querySelector(".emails").textContent = "";
   dataobj[type].items.forEach(function (email, index) {
     if (email.tags.isStarred) {
       createEmailList(email, index);
@@ -68,9 +68,9 @@ star.addEventListener('click', function () {
 });
 
 //Trash box
-trash.addEventListener('click', function () {
+trash.addEventListener("click", function () {
   let type = activeTab();
-  document.querySelector('.emails').textContent = '';
+  document.querySelector(".emails").textContent = "";
   dataobj[type].items.forEach(function (email, index) {
     if (email.tags.isTrash) {
       createEmailList(email, index);
@@ -94,6 +94,7 @@ promo.addEventListener("click", () => {
 
 emails.addEventListener("click", deleteOrRead);
 
+// FETCH DATA
 function fetchApi(category = "primary") {
   // tabSwitch(category);
   fetch(`https://polar-reaches-49806.herokuapp.com/api?page=1&category=${category}`).then(data => data.json()).then(data => dataFetch(data, category));
@@ -102,6 +103,7 @@ function fetchApi(category = "primary") {
   }
 }
 
+// HELPER FUNCTIONS
 function listToUi(data, category) {
   tabSwitch(category);
   document.querySelector(".emails").textContent = "";
@@ -209,28 +211,33 @@ function deleteOrRead(e) {
       if (e.target.id == key) {
         console.log("delete", category, key);
         // openEmail(dataobj[category].items[key]);
-        // readEmail(category, key);
+        readEmail(category, key);
         openEmail(dataobj, key);
       }
     }
   }
 }
 
+function readEmail(category, id) {
+  console.log(dataobj[category].items[id].isRead);
+  dataobj[category].items[id].isRead = true;
+}
+
 function openEmail(data, id) {
-  document.querySelector('.emails').textContent = '';
+  document.querySelector(".emails").textContent = "";
   let type = activeTab();
-  let letterContent = document.createElement('div');
+  let letterContent = document.createElement("div");
   dataobj[type].items.forEach(function (email, index) {
     if (index == id) {
-      let senderName = document.createElement('p');
+      let senderName = document.createElement("p");
       senderName.textContent = email.senderName;
-      let senderMail = document.createElement('p');
+      let senderMail = document.createElement("p");
       senderMail.textContent = email.senderEmail;
-      let msgTitle = document.createElement('p');
+      let msgTitle = document.createElement("p");
       msgTitle.textContent = email.messageTitle;
       // let msgAttach = document.createElement('img')
       // msgAttach.src = email.messages[0].attachments[0].icon
-      let msgText = document.createElement('p');
+      let msgText = document.createElement("p");
       msgText.textContent = email.messages[0].message;
 
       letterContent.appendChild(senderName);
@@ -553,11 +560,11 @@ function clickAngleChat() {
 }
 
 //-------------MAIN PART - AZIZ, KANYKEI-----
-let leftArrow = document.querySelector('.fa-angle-left');
-let rightArrow = document.querySelector('.fa-angle-right');
+let leftArrow = document.querySelector(".fa-angle-left");
+let rightArrow = document.querySelector(".fa-angle-right");
 
-leftArrow.addEventListener('click', goBack);
-rightArrow.addEventListener('click', goForth);
+leftArrow.addEventListener("click", goBack);
+rightArrow.addEventListener("click", goForth);
 
 function goBack() {
   let currentTab = activeTab();
@@ -575,7 +582,7 @@ function goForth() {
     return;
   }
 
-  let totalMessages = dataobj[currentTab]['items'].length;
+  let totalMessages = dataobj[currentTab]["items"].length;
   if (messagesStartIndex + messagesLimitOnPage < totalMessages && totalMessages !== undefined) {
     messagesStartIndex += messagesLimitOnPage;
     listToUi(dataobj, currentTab);
@@ -583,7 +590,7 @@ function goForth() {
 }
 
 setTimeout(() => {
-  console.log('dataOBJ');
+  console.log("dataOBJ");
   console.log(dataobj);
 }, 1000);
 
