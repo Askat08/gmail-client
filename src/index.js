@@ -31,7 +31,7 @@ const middle = document.querySelector(".middle");
 const result = document.querySelector(".result");
 const searchList = document.querySelectorAll(".searchList");
 const clearSearch = document.querySelector(".clear-search");
-const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
+const rangeOfMessagesElement = document.querySelector(".num-of-pages .amount");
 const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
 // EVENT LISTENERS
@@ -118,6 +118,12 @@ function listToUi(data, category) {
   tabSwitch(category);
   document.querySelector(".emails").textContent = "";
   totalMessagesElement.innerText = data[category].items.length;
+  let messagesCount = data[category].items.length; //50
+  let rangeEnd = (messagesStartIndex + messagesLimitOnPage);
+  if(rangeEnd > messagesCount) {
+    rangeEnd = rangeEnd - (rangeEnd%messagesCount);
+  }
+  rangeOfMessagesElement.innerText = `${messagesStartIndex+1}-${rangeEnd} of `;
   data[category].items
     .slice(messagesStartIndex, messagesLimitOnPage + messagesStartIndex)
     .forEach((item, index) => {
