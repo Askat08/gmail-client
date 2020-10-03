@@ -84,6 +84,7 @@ promo.addEventListener("click", () => {
 
 emails.addEventListener("click", deleteOrRead);
 
+// FETCH DATA
 function fetchApi(category = "primary") {
   // tabSwitch(category);
   fetch(
@@ -96,6 +97,7 @@ function fetchApi(category = "primary") {
   }
 }
 
+// HELPER FUNCTIONS
 function listToUi(data, category) {
   tabSwitch(category);
   document.querySelector(".emails").textContent = "";
@@ -215,38 +217,43 @@ function deleteOrRead(e) {
       if (e.target.id == key) {
         console.log("delete", category, key);
         // openEmail(dataobj[category].items[key]);
-        // readEmail(category, key);
-        openEmail(dataobj, key)
+        readEmail(category, key);
+        openEmail(dataobj, key);
       }
     }
   }
 }
 
-function openEmail(data, id){
-  document.querySelector('.emails').textContent = '';
+function readEmail(category, id) {
+  console.log(dataobj[category].items[id].isRead);
+  dataobj[category].items[id].isRead = true;
+}
+
+function openEmail(data, id) {
+  document.querySelector(".emails").textContent = "";
   let type = activeTab();
-  let letterContent = document.createElement('div')
-  dataobj[type].items.forEach(function (email, index){
-    if(index == id){
-      let senderName = document.createElement('p')
-      senderName.textContent = email.senderName
-      let senderMail = document.createElement('p')
-      senderMail.textContent = email.senderEmail
-      let msgTitle = document.createElement('p')
-      msgTitle.textContent = email.messageTitle
+  let letterContent = document.createElement("div");
+  dataobj[type].items.forEach(function (email, index) {
+    if (index == id) {
+      let senderName = document.createElement("p");
+      senderName.textContent = email.senderName;
+      let senderMail = document.createElement("p");
+      senderMail.textContent = email.senderEmail;
+      let msgTitle = document.createElement("p");
+      msgTitle.textContent = email.messageTitle;
       // let msgAttach = document.createElement('img')
       // msgAttach.src = email.messages[0].attachments[0].icon
-      let msgText = document.createElement('p')
-      msgText.textContent = email.messages[0].message
-      
-      letterContent.appendChild(senderName)
-      letterContent.appendChild(senderMail)
-      letterContent.appendChild(msgTitle)
+      let msgText = document.createElement("p");
+      msgText.textContent = email.messages[0].message;
+
+      letterContent.appendChild(senderName);
+      letterContent.appendChild(senderMail);
+      letterContent.appendChild(msgTitle);
       // letterContent.appendChild(msgAttach)
-      letterContent.appendChild(msgText)
+      letterContent.appendChild(msgText);
     }
   });
-  emails.appendChild(letterContent)
+  emails.appendChild(letterContent);
 }
 
 function openClose(e) {
