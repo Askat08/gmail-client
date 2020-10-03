@@ -47,8 +47,8 @@ header {
     justify-content: flex-end;
     align-items: center;
     flex: 1; }
-    header .right img {
-      margin: 0 10px; }
+    header .right i {
+      color: grey; }
   header .middle {
     flex: 5;
     position: relative;
@@ -231,7 +231,7 @@ hr {
   display: block;
   position: absolute;
   right: 97.5%;
-  bottom: 18%; }
+  bottom: 18.5%; }
 
 .aside-footer {
   margin-top: 20px;
@@ -244,8 +244,10 @@ hr {
     height: 27px;
     padding: 5px; }
 
-.aside-footer i:hover {
-  background-color: lightgrey; }
+.aside-footer i {
+  color: grey; }
+  .aside-footer i:hover {
+    background-color: lightgrey; }
 
 /*Compose new letter*/
 .new-letter {
@@ -463,7 +465,8 @@ main .page .pagination .num-of-pages {
   font-size: 12px; }
 
 main .page .pagination .keyboard {
-  position: relative; }
+  position: relative;
+  color: #7f7f7f; }
 
 main .page .pagination .keyboard .fa-caret-down {
   position: absolute;
@@ -500,6 +503,8 @@ main .scroll .email {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
   cursor: pointer; }
 
 main .scroll .email:hover {
@@ -513,7 +518,7 @@ main .scroll .email .hover-icons {
   position: absolute;
   top: 0;
   right: 0;
-  width: 80px;
+  width: 150px;
   height: 100%;
   background-color: #fff;
   display: none;
