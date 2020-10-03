@@ -23,12 +23,12 @@ const mainMenu = document.querySelector(".main-menu");
 const pagination = document.querySelector("#pagination");
 const senderMain = document.querySelector("#sender");
 const subjectMain = document.querySelector("#subject");
-const searchBar = document.querySelector('#search');
-const matchList = document.querySelector('.match-list');
-const middle = document.querySelector('.middle');
-const result = document.querySelector('.result');
-const searchList = document.querySelectorAll('.searchList');
-const clearSearch = document.querySelector('.clear-search');
+const searchBar = document.querySelector("#search");
+const matchList = document.querySelector(".match-list");
+const middle = document.querySelector(".middle");
+const result = document.querySelector(".result");
+const searchList = document.querySelectorAll(".searchList");
+const clearSearch = document.querySelector(".clear-search");
 const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
 const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
@@ -263,7 +263,6 @@ function openClose(e) {
 // Askat end
 //const messagesAPI = '../api.json';
 
-
 // let messages = [];
 // const msgDivMain = document.querySelector(".messages");
 // msgDivMain.style.display = 'none';
@@ -329,158 +328,153 @@ function openClose(e) {
 //     }, 1000);
 // }
 
-
 /////// Aidana's code
 const itemsListData = [{
-  "tags": {
-    "isStarred": false,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: false,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Seytech Co",
-  "senderEmail": "support@seytech.com",
-  "messageTitle": "Enrollment start date",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "When you would like to join us?",
-    "attachments": [{
-      "text": "seytech logo",
-      "icon": "https://www.seytech.co/images/logo.png"
+  senderName: "Seytech Co",
+  senderEmail: "support@seytech.com",
+  messageTitle: "Enrollment start date",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "When you would like to join us?",
+    attachments: [{
+      text: "seytech logo",
+      icon: "https://www.seytech.co/images/logo.png"
     }],
-    "date": "2020-10-01T16:02:06.598Z"
+    date: "2020-10-01T16:02:06.598Z"
   }, {
-    "message": "Here is the info about our start date",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+    message: "Here is the info about our start date",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": false,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: false,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Heroku",
-  "senderEmail": "heroku@heroku.com",
-  "messageTitle": "Excited to announce our new feature",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Now you can use for free $$$",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Heroku",
+  senderEmail: "heroku@heroku.com",
+  messageTitle: "Excited to announce our new feature",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Now you can use for free $$$",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": false,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: false,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Facebook",
-  "senderEmail": "facebook@facebook.com",
-  "messageTitle": "Today is your friends birthday!",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Time to congratulate your friends on their birthday",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Facebook",
+  senderEmail: "facebook@facebook.com",
+  messageTitle: "Today is your friends birthday!",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Time to congratulate your friends on their birthday",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": true,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: true,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Michael Dunn",
-  "senderEmail": "m@dunn.com",
-  "messageTitle": "Don't forget about our meeting today...",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Michael Dunn",
+  senderEmail: "m@dunn.com",
+  messageTitle: "Don't forget about our meeting today...",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": true,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: true,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Michael Dunn",
-  "senderEmail": "m@dunn.com",
-  "messageTitle": "Don't forget about our meeting today...",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Michael Dunn",
+  senderEmail: "m@dunn.com",
+  messageTitle: "Don't forget about our meeting today...",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": true,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: true,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Michael Dunn",
-  "senderEmail": "m@dunn.com",
-  "messageTitle": "Don't forget about our meeting today...",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Michael Dunn",
+  senderEmail: "m@dunn.com",
+  messageTitle: "Don't forget about our meeting today...",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": true,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: true,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Michael Dunn",
-  "senderEmail": "m@dunn.com",
-  "messageTitle": "Don't forget about our meeting today...",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Michael Dunn",
+  senderEmail: "m@dunn.com",
+  messageTitle: "Don't forget about our meeting today...",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }, {
-  "tags": {
-    "isStarred": true,
-    "isTrash": false,
-    "isSpam": false
+  tags: {
+    isStarred: true,
+    isTrash: false,
+    isSpam: false
   },
-  "senderName": "Michael Dunn",
-  "senderEmail": "m@dunn.com",
-  "messageTitle": "Don't forget about our meeting today...",
-  "isRead": false,
-  "date": "2020-10-01T16:02:06.598Z",
-  "messages": [{
-    "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
-    "attachments": [],
-    "date": "2020-10-01T16:02:06.598Z"
+  senderName: "Michael Dunn",
+  senderEmail: "m@dunn.com",
+  messageTitle: "Don't forget about our meeting today...",
+  isRead: false,
+  date: "2020-10-01T16:02:06.598Z",
+  messages: [{
+    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
+    attachments: [],
+    date: "2020-10-01T16:02:06.598Z"
   }]
 }];
 
-console.log(itemsListData);
-
-function getFiltered(inp) {}
-
-searchBar.addEventListener('input', e => {
+searchBar.addEventListener("input", e => {
   const inputVal = e.target.value.toLowerCase();
   console.log(`showing input: ${inputVal}`);
 
-  if (inputVal.length > 0 && inputVal !== '') {
-    //clear x 
-    clearSearch.classList.add('clear-search-visible');
-
-    const temp = itemsListData.filter(function (msg) {
+  if (inputVal.length > 0 && inputVal !== "") {
+    //clear x
+    clearSearch.classList.add("clear-search-visible");
+    let type = activeTab();
+    const temp = dataobj[type].items.filter(function (msg) {
       return msg.senderName.toLowerCase().includes(inputVal) || msg.senderEmail.toLowerCase().includes(inputVal) || msg.messageTitle.toLowerCase().includes(inputVal);
     }).map(function (listOfmsg) {
       return `<div class="result">
@@ -493,27 +487,28 @@ searchBar.addEventListener('input', e => {
                         </p> 
                         </a> 
                         </div`;
-    }).join('');
+    }).join("");
     matchList.innerHTML = temp;
     console.log(`this is temp arr = ${temp}`);
   } else {
-    matchList.innerHTML = '';
+    matchList.innerHTML = "";
   }
 
   //clear search //
 
-  clearSearch.addEventListener('click', function () {
-    searchBar.value = '';
-    matchList.innerHTML = '';
-    clearSearch.classList.remove('clear-search-visible');
+  clearSearch.addEventListener("click", function () {
+    searchBar.value = "";
+    matchList.innerHTML = "";
+    clearSearch.classList.remove("clear-search-visible");
   });
 });
 
-// searchList.addEventListener('click', function(){
-//     alert('You clicked');
+// if (searchList !== null) {
+//   searchList.addEventListener("click", function () {
+//     // alert('You clicked');
 //     console.log(`You clicked on message!`);
-// })
-
+//   });
+// }
 
 const test = "This is a text";
 document.querySelector(".compose").addEventListener("click", composeBtn);
