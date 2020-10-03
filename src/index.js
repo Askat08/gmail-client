@@ -17,9 +17,19 @@ const trash = document.querySelector(".trash");
 const star = document.querySelector(".starred");
 const spam = document.querySelector(".spam");
 const envelope = document.querySelector(".fa-envelope-open");
-const input = document.querySelector("#search");
+
 const emailDiv = document.querySelector(".email");
-const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
+const mainMenu = document.querySelector(".main-menu");
+const pagination = document.querySelector("#pagination");
+const senderMain = document.querySelector("#sender");
+const subjectMain = document.querySelector("#subject");
+const searchBar = document.querySelector('#search');
+const matchList = document.querySelector('.match-list')
+const middle = document.querySelector('.middle');
+const result = document.querySelector('.result');
+const searchList = document.querySelectorAll('.searchList');
+const clearSearch = document.querySelector('.clear-search');
+const rangeOfMessagesElement = document.querySelector(".num-of-pages span") 
 const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
 // Inbox
@@ -268,13 +278,8 @@ function openClose(e) {
 
 // Askat end
 //const messagesAPI = '../api.json';
-const mainMenu = document.querySelector(".main-menu");
-const pagination = document.querySelector("#pagination");
-const senderMain = document.querySelector("#sender");
-const subjectMain = document.querySelector("#subject");
-const searchBar = document.querySelector("#search");
-const matchList = document.querySelector("#match-list");
-const middle = document.querySelector(".middle");
+
+
 
 // let messages = [];
 // const msgDivMain = document.querySelector(".messages");
@@ -341,49 +346,233 @@ const middle = document.querySelector(".middle");
 //     }, 1000);
 // }
 
-/////// Aidana's code
-let items = [];
-let myObj = {};
+     
+    /////// Aidana's code
+    const itemsListData = [
+        {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Seytech Co",
+            "senderEmail": "support@seytech.com",
+            "messageTitle": "Enrollment start date",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "When you would like to join us?",
+            "attachments": [
+            {
+            "text": "seytech logo",
+            "icon": "https://www.seytech.co/images/logo.png"
+            }
+            ],
+            "date": "2020-10-01T16:02:06.598Z"
+            },
+            {
+            "message": "Here is the info about our start date",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Heroku",
+            "senderEmail": "heroku@heroku.com",
+            "messageTitle": "Excited to announce our new feature",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Now you can use for free $$$",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": false,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Facebook",
+            "senderEmail": "facebook@facebook.com",
+            "messageTitle": "Today is your friends birthday!",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Time to congratulate your friends on their birthday",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            },
+            {
+            "tags": {
+            "isStarred": true,
+            "isTrash": false,
+            "isSpam": false
+            },
+            "senderName": "Michael Dunn",
+            "senderEmail": "m@dunn.com",
+            "messageTitle": "Don't forget about our meeting today...",
+            "isRead": false,
+            "date": "2020-10-01T16:02:06.598Z",
+            "messages": [
+            {
+            "message": "Hey keep an eye on calendar and don't forget about our meeting today.",
+            "attachments": [],
+            "date": "2020-10-01T16:02:06.598Z"
+            }
+            ]
+            }
+    ]
 
-const showObject = function () {
-  // console.log(myObj);
-};
-
-const showObj = searchBar.addEventListener("input", (e) => {
-  console.log(items);
-  //console.log(myObj);
-  const inputVal = e.target.value.toLowerCase();
-  console.log(inputVal);
-
-  for (let i = 0; i < items.length; i++) {
-    if (inputVal.length > 0) {
-      if (
-        items[i].senderName.toLowerCase().includes(inputVal) ||
-        items[i].senderEmail.toLowerCase().includes(inputVal) ||
-        items[i].messageTitle.toLowerCase().includes(inputVal)
-      ) {
-        matchList.innerHTML = `<div class='textInput'>
-                    ${items[i].senderName}, ${items[i].senderEmail} , ${items[i].messageTitle}
-                    </div>`;
-      }
+    console.log(itemsListData);
+    
+    function getFiltered(inp){
+  
+       
     }
-  }
-});
 
-fetch("https://polar-reaches-49806.herokuapp.com/api?page=1&category=primary")
-  .then(function (resp) {
-    return resp.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-    items = data.items;
-    myObj = data;
-    showObj;
-    showObject();
-    //console.log(items[1].senderName);
-  });
+    
 
-///Aidana's code end
+    
+    searchBar.addEventListener('input', (e) => {
+    const inputVal = e.target.value.toLowerCase();  
+      console.log(`showing input: ${inputVal}`)
+     
+      if(inputVal.length > 0 && inputVal !== ''){
+          //clear x 
+          clearSearch.classList.add('clear-search-visible');
+    
+        const temp = itemsListData.filter(function(msg){
+            return msg.senderName.toLowerCase().includes(inputVal) || 
+            msg.senderEmail.toLowerCase().includes(inputVal) || 
+            msg.messageTitle.toLowerCase().includes(inputVal)
+        }).map(function(listOfmsg){
+            return `<div class="result">
+                        <a href="#" class="searchList">
+                        <i class="fas fa-envelope"></i>
+                        <span class="searchl">${listOfmsg.messageTitle}</span>
+                        <p class="searchp"> 
+                        <em class="italic">from:  </em>
+                        ${listOfmsg.senderName} &nbsp; <em class="italic">email: </em>${listOfmsg.senderEmail}
+                        </p> 
+                        </a> 
+                        </div`
+        }).join('');
+        matchList.innerHTML = temp;
+        console.log(`this is temp arr = ${temp}`)
+
+      }else{
+          matchList.innerHTML = '';
+          
+          
+      }
+
+      //clear search //
+
+      clearSearch.addEventListener('click', function(){
+        searchBar.value = '';
+        matchList.innerHTML = '';
+        clearSearch.classList.remove('clear-search-visible');
+    });
+ 
+
+    });
+
+    // searchList.addEventListener('click', function(){
+    //     alert('You clicked');
+    //     console.log(`You clicked on message!`);
+    // })
+
+  
 
 const test = "This is a text";
 document.querySelector(".compose").addEventListener("click", composeBtn);
