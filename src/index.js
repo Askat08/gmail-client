@@ -213,12 +213,40 @@ function deleteOrRead(e) {
   } else {
     for (let key in dataobj[category].items) {
       if (e.target.id == key) {
-        console.log("delete", category);
+        console.log("delete", category, key);
         // openEmail(dataobj[category].items[key]);
         // readEmail(category, key);
+        openEmail(dataobj, key)
       }
     }
   }
+}
+
+function openEmail(data, id){
+  document.querySelector('.emails').textContent = '';
+  let type = activeTab();
+  let letterContent = document.createElement('div')
+  dataobj[type].items.forEach(function (email, index){
+    if(index == id){
+      let senderName = document.createElement('p')
+      senderName.textContent = email.senderName
+      let senderMail = document.createElement('p')
+      senderMail.textContent = email.senderEmail
+      let msgTitle = document.createElement('p')
+      msgTitle.textContent = email.messageTitle
+      // let msgAttach = document.createElement('img')
+      // msgAttach.src = email.messages[0].attachments[0].icon
+      let msgText = document.createElement('p')
+      msgText.textContent = email.messages[0].message
+      
+      letterContent.appendChild(senderName)
+      letterContent.appendChild(senderMail)
+      letterContent.appendChild(msgTitle)
+      // letterContent.appendChild(msgAttach)
+      letterContent.appendChild(msgText)
+    }
+  });
+  emails.appendChild(letterContent)
 }
 
 function openClose(e) {
