@@ -413,10 +413,11 @@ searchBar.addEventListener('input', e => {
   });
 });
 
-searchList.addEventListener('click', function () {
-  alert('You clicked');
-  console.log(`You clicked on message!`);
-});
+// searchList.addEventListener('click', function(){
+//     alert('You clicked');
+//     console.log(`You clicked on message!`);
+// })
+
 
 const test = "This is a text";
 document.querySelector(".compose").addEventListener("click", composeBtn);
