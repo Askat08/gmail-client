@@ -404,7 +404,7 @@ searchBar.addEventListener('input', e => {
     matchList.innerHTML = '';
   }
 
-  //clear search
+  //clear search //
 
   clearSearch.addEventListener('click', function () {
     searchBar.value = '';

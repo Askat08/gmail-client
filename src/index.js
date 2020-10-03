@@ -458,7 +458,7 @@ function openClose(e) {
           
       }
 
-      //clear search
+      //clear search //
 
       clearSearch.addEventListener('click', function(){
         searchBar.value = '';
