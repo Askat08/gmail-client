@@ -711,6 +711,12 @@ main .scroll .email .email-date-wrapper {
   padding-left: 20px;
 }
 
+.email-page {
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+
 //email letter content
 // .email-content-letter{
 //   display: none;

@@ -3,6 +3,8 @@
 let dataobj = {};
 const messagesLimitOnPage = 20;
 let messagesStartIndex = 0;
+
+// starter fetch data
 fetchApi();
 fetchApi("social");
 fetchApi("promotions");
@@ -32,6 +34,8 @@ const clearSearch = document.querySelector(".clear-search");
 const rangeOfMessagesElement = document.querySelector(".num-of-pages span");
 const totalMessagesElement = document.querySelector(".num-of-pages .total");
 
+// EVENT LISTENERS
+// ASIDE SECTION
 // Inbox
 inbox.addEventListener("click", function () {
   let type = activeTab();
@@ -78,7 +82,7 @@ trash.addEventListener("click", function () {
   });
 });
 
-// EVENT LISTENERS
+// TABS
 social.addEventListener("click", () => {
   messagesStartIndex = 0; //reset the startIndex
   listToUi(dataobj, "social");
@@ -104,6 +108,8 @@ function fetchApi(category = "primary") {
 }
 
 // HELPER FUNCTIONS
+
+// Listing items to UI
 function listToUi(data, category) {
   tabSwitch(category);
   document.querySelector(".emails").textContent = "";
@@ -116,6 +122,7 @@ function listToUi(data, category) {
   });
 }
 
+// ACTIVE TAB SWITCHING FUNCTION
 function tabSwitch(category) {
   const tabs = document.querySelectorAll(".tab");
   tabs.forEach(tab => {
@@ -128,6 +135,7 @@ function tabSwitch(category) {
   });
 }
 
+// FIND ACTIVE TAB
 function activeTab() {
   const tabs = document.querySelectorAll(".tab");
   for (let i = 0; i < tabs.length; i++) {
@@ -137,6 +145,7 @@ function activeTab() {
   }
 }
 
+// CHANGE AN ITEM TAG
 function changeTag(e) {
   let category = activeTab();
   if (e.target.getAttribute("star-id") !== null) {
@@ -161,6 +170,7 @@ function changeTag(e) {
   }
 }
 
+// CREATE AN ITEM LIST
 function createEmailList(email, id) {
   const emailItem = emailDiv.cloneNode(true);
   let date = email.date;
@@ -189,7 +199,7 @@ function createEmailList(email, id) {
   // console.log(emailItem);
 }
 
-// FUNCTION DELETE EMAIL OR READ
+// DELETE ITEM OR "READ"
 function deleteOrRead(e) {
   let category = activeTab();
   if (e.target.getAttribute("data-id") !== null) {
@@ -218,15 +228,18 @@ function deleteOrRead(e) {
   }
 }
 
+// EMAIL READ TAG TOGGLE
 function readEmail(category, id) {
   console.log(dataobj[category].items[id].isRead);
   dataobj[category].items[id].isRead = true;
 }
 
+// SINGLE EMAIL PAGE
 function openEmail(data, id) {
   document.querySelector(".emails").textContent = "";
   let type = activeTab();
   let letterContent = document.createElement("div");
+  letterContent.classList.add("email-page");
   dataobj[type].items.forEach(function (email, index) {
     if (index == id) {
       let senderName = document.createElement("p");
@@ -250,6 +263,7 @@ function openEmail(data, id) {
   emails.appendChild(letterContent);
 }
 
+// TOGGLE ENVELOE ICON
 function openClose(e) {
   if (e.target.classList.contains("fa-envelope-open")) {
     e.target.classList.remove("fa-envelope-open");
@@ -261,211 +275,10 @@ function openClose(e) {
 }
 
 // Askat end
-//const messagesAPI = '../api.json';
 
-// let messages = [];
-// const msgDivMain = document.querySelector(".messages");
-// msgDivMain.style.display = 'none';
+// AIDANA
 
-// function showMainMenu(checkBox) {
-
-// }
-// //api read
-// async function readMessages() {
-//     const response = await fetch(messagesAPI);
-//     const msgData = await response.json();
-//     //fill with messages
-//     messages = msgData["items"];
-//     const msgLimit = msgData["next"]["limit"];
-//     fillPagination(msgData, msgLimit);
-//     fillMainMsgs(msgLimit);
-//     addListeners();
-// }
-
-// const fillPagination = (msgData, msgLimit) => {
-//     const totalMsg = msgData["total"];
-//     const paginationString = `1-${msgLimit} of ${totalMsg}`;
-//     pagination.textContent = paginationString;
-// }
-
-// const fillMainMsgs = msgLimit => {
-//     for (let i = 0; i < msgLimit; i++) {
-//         const {
-//             senderName,
-//             messageTitle
-//         } = messages[i];
-
-//         var messageEl = msgDivMain.cloneNode(true);
-//         messageEl.style.display = "block"; //make the element visible
-//         messageEl.querySelector('#sender').textContent = senderName;
-//         messageEl.querySelector('#subject').textContent = messageTitle;
-//         document.querySelector(".main-msgs").appendChild(messageEl);
-//     }
-// }
-
-// readMessages().then(response => {
-//     console.log('messages API successful retrieval')
-// }).
-// catch(err => {
-//     console.error(err);
-// })
-
-// function addListeners() {
-//     setTimeout(() => {
-//         console.log('working interval')
-//         let checkBoxes = document.querySelectorAll('.check');
-//         checkBoxes.forEach(elem => {
-//             elem.addEventListener('click', (e) => {
-//                 let checked = e.target.checked;
-//                 console.log('check clicked')
-//                 if (checked) {
-//                     mainMenu.style.visibility = 'visible';
-//                 } else {
-//                     mainMenu.style.visibility = 'hidden';
-//                 }
-//             });
-//         })
-//     }, 1000);
-// }
-
-/////// Aidana's code
-const itemsListData = [{
-  tags: {
-    isStarred: false,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Seytech Co",
-  senderEmail: "support@seytech.com",
-  messageTitle: "Enrollment start date",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "When you would like to join us?",
-    attachments: [{
-      text: "seytech logo",
-      icon: "https://www.seytech.co/images/logo.png"
-    }],
-    date: "2020-10-01T16:02:06.598Z"
-  }, {
-    message: "Here is the info about our start date",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: false,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Heroku",
-  senderEmail: "heroku@heroku.com",
-  messageTitle: "Excited to announce our new feature",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Now you can use for free $$$",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: false,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Facebook",
-  senderEmail: "facebook@facebook.com",
-  messageTitle: "Today is your friends birthday!",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Time to congratulate your friends on their birthday",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: true,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Michael Dunn",
-  senderEmail: "m@dunn.com",
-  messageTitle: "Don't forget about our meeting today...",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: true,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Michael Dunn",
-  senderEmail: "m@dunn.com",
-  messageTitle: "Don't forget about our meeting today...",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: true,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Michael Dunn",
-  senderEmail: "m@dunn.com",
-  messageTitle: "Don't forget about our meeting today...",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: true,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Michael Dunn",
-  senderEmail: "m@dunn.com",
-  messageTitle: "Don't forget about our meeting today...",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}, {
-  tags: {
-    isStarred: true,
-    isTrash: false,
-    isSpam: false
-  },
-  senderName: "Michael Dunn",
-  senderEmail: "m@dunn.com",
-  messageTitle: "Don't forget about our meeting today...",
-  isRead: false,
-  date: "2020-10-01T16:02:06.598Z",
-  messages: [{
-    message: "Hey keep an eye on calendar and don't forget about our meeting today.",
-    attachments: [],
-    date: "2020-10-01T16:02:06.598Z"
-  }]
-}];
-
+// SEARCHBAR FUNCTIONALITY
 searchBar.addEventListener("input", e => {
   const inputVal = e.target.value.toLowerCase();
   console.log(`showing input: ${inputVal}`);
@@ -503,14 +316,8 @@ searchBar.addEventListener("input", e => {
   });
 });
 
-// if (searchList !== null) {
-//   searchList.addEventListener("click", function () {
-//     // alert('You clicked');
-//     console.log(`You clicked on message!`);
-//   });
-// }
-
-const test = "This is a text";
+// FARKHAT
+// EVENT LISTENERS to ASIDE SECTION
 document.querySelector(".compose").addEventListener("click", composeBtn);
 function composeBtn() {
   let link = document.querySelector(".new-letter-content").classList;
@@ -590,3 +397,72 @@ setTimeout(() => {
 }, 1000);
 
 //---------------MAIN PART END---------------
+
+//const messagesAPI = '../api.json';
+
+// let messages = [];
+// const msgDivMain = document.querySelector(".messages");
+// msgDivMain.style.display = 'none';
+
+// function showMainMenu(checkBox) {
+
+// }
+// //api read
+// async function readMessages() {
+//     const response = await fetch(messagesAPI);
+//     const msgData = await response.json();
+//     //fill with messages
+//     messages = msgData["items"];
+//     const msgLimit = msgData["next"]["limit"];
+//     fillPagination(msgData, msgLimit);
+//     fillMainMsgs(msgLimit);
+//     addListeners();
+// }
+
+// const fillPagination = (msgData, msgLimit) => {
+//     const totalMsg = msgData["total"];
+//     const paginationString = `1-${msgLimit} of ${totalMsg}`;
+//     pagination.textContent = paginationString;
+// }
+
+// const fillMainMsgs = msgLimit => {
+//     for (let i = 0; i < msgLimit; i++) {
+//         const {
+//             senderName,
+//             messageTitle
+//         } = messages[i];
+
+//         var messageEl = msgDivMain.cloneNode(true);
+//         messageEl.style.display = "block"; //make the element visible
+//         messageEl.querySelector('#sender').textContent = senderName;
+//         messageEl.querySelector('#subject').textContent = messageTitle;
+//         document.querySelector(".main-msgs").appendChild(messageEl);
+//     }
+// }
+
+// readMessages().then(response => {
+//     console.log('messages API successful retrieval')
+// }).
+// catch(err => {
+//     console.error(err);
+// })
+
+// function addListeners() {
+//     setTimeout(() => {
+//         console.log('working interval')
+//         let checkBoxes = document.querySelectorAll('.check');
+//         checkBoxes.forEach(elem => {
+//             elem.addEventListener('click', (e) => {
+//                 let checked = e.target.checked;
+//                 console.log('check clicked')
+//                 if (checked) {
+//                     mainMenu.style.visibility = 'visible';
+//                 } else {
+//                     mainMenu.style.visibility = 'hidden';
+//                 }
+//             });
+//         })
+//     }, 1000);
+// }
+
+/////// Aidana's code

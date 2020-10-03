@@ -581,3 +581,8 @@ main .scroll .email .email-msg p {
 
 main .scroll .email .email-date-wrapper {
   padding-left: 20px; }
+
+.email-page {
+  border: solid 1px;
+  display: flex;
+  flex-direction: column; }
